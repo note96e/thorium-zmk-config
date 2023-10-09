@@ -1,0 +1,191 @@
+#pragma once
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+#include "us2jp.h"
+
+/* layer */
+#define US_L 0
+#define NUM_L 1
+#define LOWER_L 2
+#define RAISE_L 3
+#define FUNC_L 4
+#define LMOD_L 5
+    /* layer US to JP */
+#define JP_L 6
+#define JPNUM_L 7
+#define JPLOWER_L 8
+#define JPRAISE_L 9
+#define JPFUNC_L 10
+#define JPLMOD_L 11
+    /* ----- */
+#define RMOD_L 12
+#define ADJUST_L 13
+
+/* keycode */
+#define XXXXXXX &none
+#define _______ &trans
+
+#define CTLSPC &mt LCTRL SPACE
+#define SFTSPC &mt RSHFT SPACE
+#define LOWER &mo LOWER_L
+#define RAISE &mo RAISE_L
+#define FUNCSL &lt FUNC_L SLASH
+#define ADJENT &lt ADJUST_L ENTER
+
+#define FUNCPE &lt FUNC_L KP_ENTER
+#define RAISEPD &lt RAISE_L KP_DOT
+
+#define RMOD &lt RMOD_L LANG1
+
+#define LMOD &lt LMOD_L LANG2
+
+#define ADJUST &mo ADJUST_L
+#define NUML &tog NUM_L
+
+    /* keycode US to JP */
+#define JPLOWER &mo JPLOWER_L
+#define JPRAISE &mo JPRAISE_L
+#define JPFUNCSL &lt JPFUNC_L SLASH
+
+#define JPFUNCPE &lt JPFUNC_L KP_ENTER
+#define JPRAISEPD &lt JPRAISE_L KP_DOT
+
+#define JPLMOD &lt JPLMOD_L LANG2
+
+#define JPNUML &tog JPNUM_L
+
+#define USMODE &to US_L
+#define JPMODE &to JP_L
+
+/* device tree */
+
+&mt {
+    tapping-term-ms = <200>;
+    quick-tap-ms = <200>;
+};
+
+&lt {
+    tapping-term-ms = <200>;
+    quick-tap-ms = <200>;
+};
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+        us_layer {
+            bindings = <
+    &kp Q     &kp W     &kp E     &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O     &kp P
+    &kp A     &kp S     &kp D     &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &kp SEMI
+    &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N     &kp M     &kp COMMA &kp DOT   FUNCSL
+                                  LOWER     CTLSPC    SFTSPC    RAISE
+            >;
+        };
+        num_layer {
+            bindings = <
+    _______   _______   _______   _______   _______   &kp KP_SLASH    &kp KP_N7    &kp KP_N8 &kp KP_N9 &kp KP_MINUS
+    _______   _______   _______   _______   _______   &kp KP_ASTERISK &kp KP_N4    &kp KP_N5 &kp KP_N6 &kp KP_PLUS
+    _______   _______   _______   _______   _______   &kp TAB         &kp KP_N1    &kp KP_N2 &kp KP_N3 FUNCPE
+                                  _______   _______   &kp KP_N0       RAISEPD
+            >;
+        };
+        lower_layer {
+            bindings = <
+    &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT &kp CARET &kp AMPS  &kp ASTRK &kp HOME  &kp END
+    &kp CAPS  &kp TAB   &kp BSPC  &kp ESC   &kp DEL   XXXXXXX   &kp UNDER &kp PLUS  &kp PIPE  &kp DQT
+    &kp LSHFT &kp LCTRL &kp LALT  &kp LGUI  &kp PSCRN &kp TILDE &kp RGUI  &kp RALT  &kp RCTRL &kp RSHFT
+                                  _______   ADJENT    &kp ENTER RMOD
+            >;
+        };
+        raise_layer {
+            bindings = <
+    &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    &kp N6    &kp N7    &kp N8    &kp N9    &kp N0
+    &kp LPAR  &kp RPAR  &kp LBKT  &kp RBKT  &kp LBRC  &kp RBRC  &kp MINUS &kp EQUAL &kp BSLH  &kp SQT
+    &kp LSHFT &kp LCTRL &kp LALT  &kp LGUI  XXXXXXX   &kp GRAVE &kp RGUI  &kp RALT  &kp RCTRL &kp RSHFT
+                                  LMOD      &kp ENTER ADJENT    _______
+            >;
+        };
+        func_layer {
+            bindings = <
+    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F11   &kp F12   &kp UP     &kp INS   &kp PAUSE_BREAK
+    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp PG_UP &kp LEFT  &kp RIGHT  XXXXXXX   NUML
+    &kp LSHFT &kp LCTRL &kp LALT  &kp LGUI  ADJUST    &kp PG_DN &kp DOWN  &kp RCTRL  &kp RSHFT _______
+                                  XXXXXXX   &kp SPACE &kp RALT  &kp RGUI
+            >;
+        };
+        lmod_layer {
+            bindings = <
+    XXXXXXX      XXXXXXX      XXXXXXX    XXXXXXX  XXXXXXX   &kp Y     &kp U     &kp I     &kp O     &kp P
+    &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE XXXXXXX  XXXXXXX   &kp H     &kp J     &kp K     &kp L     &kp SEMI
+    &kp LSHFT    &kp LCTRL    &kp LALT   &kp LGUI XXXXXXX   &kp N     &kp M     &kp COMMA &kp DOT   &kp SLASH
+                                         _______  &kp SPACE &kp SPACE _______
+            >;
+        };
+        jp_layer {
+            bindings = <
+    JPQ       JPW       JPE       JPR       JPT       JPY       JPU       JPI       JPO       JPP
+    JPA       JPS       JPD       JPF       JPG       JPH       JPJ       JPK       JPL       JPSEMI
+    JPZ       JPX       JPC       JPV       JPB       JPN       JPM       JPCOMMA   JPDOT     JPFUNCSL
+                                  JPLOWER   CTLSPC    SFTSPC    JPRAISE
+            >;
+        };
+        jpnum_layer {
+            bindings = <
+    _______   _______   _______   _______   _______   &kp KP_SLASH    &kp KP_N7    &kp KP_N8 &kp KP_N9 &kp KP_MINUS
+    _______   _______   _______   _______   _______   &kp KP_ASTERISK &kp KP_N4    &kp KP_N5 &kp KP_N6 &kp KP_PLUS
+    _______   _______   _______   _______   _______   &kp TAB         &kp KP_N1    &kp KP_N2 &kp KP_N3 JPFUNCPE
+                                  _______   _______   &kp KP_N0       JPRAISEPD
+            >;
+        };
+        jplower_layer {
+            bindings = <
+    JPEXCL    JPAT      JPHASH    JPDLLR    JPPRCNT   JPCARET   JPAMPS    JPASTRK   &kp HOME  &kp END
+    &lscaps   &kp TAB   &kp BSPC  &kp ESC   &kp DEL   XXXXXXX   JPUNDER   JPPLUS    JPPIPE    JPDQT
+    &kp LSHFT &kp LCTRL &kp LALT  &kp LGUI  &kp PSCRN JPTILDE   &kp RGUI  &kp RALT  &kp RCTRL &kp RSHFT
+                                  _______   ADJENT    &kp ENTER RMOD
+            >;
+        };
+        jpraise_layer {
+            bindings = <
+    JPN1      JPN2      JPN3      JPN4      JPN5      JPN6      JPN7      JPN8      JPN9      JPN0
+    JPLPAR    JPRPAR    JPLBKT    JPRBKT    JPLBRC    JPRBRC    JPMINUS   JPEQUAL   JPBSLH    JPSQT
+    &kp LSHFT &kp LCTRL &kp LALT  &kp LGUI  XXXXXXX   JPGRAVE   &kp RGUI  &kp RALT  &kp RCTRL &kp RSHFT
+                                  JPLMOD    &kp ENTER ADJENT    _______
+            >;
+        };
+        jpfunc_layer {
+            bindings = <
+    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F11   &kp F12   &kp UP     &kp INS   &kp PAUSE_BREAK
+    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp PG_UP &kp LEFT  &kp RIGHT  XXXXXXX   JPNUML
+    &kp LSHFT &kp LCTRL &kp LALT  &kp LGUI  ADJUST    &kp PG_DN &kp DOWN  &kp RCTRL  &kp RSHFT _______
+                                  XXXXXXX   &kp SPACE &kp RALT  &kp RGUI
+            >;
+        };
+        jplmod_layer {
+            bindings = <
+    XXXXXXX      XXXXXXX      XXXXXXX    XXXXXXX  XXXXXXX   JPY       JPU       JPI       JPO       JPP
+    &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE XXXXXXX  XXXXXXX   JPH       JPJ       JPK       JPL       JPSEMI
+    &kp LSHFT    &kp LCTRL    &kp LALT   &kp LGUI XXXXXXX   JPN       JPM       JPCOMMA   JPDOT     JPSLASH
+                                         _______  &kp SPACE &kp SPACE _______
+            >;
+        };
+        rmod_layer {
+            bindings = <
+    &kp Q     &kp W     &kp E     &kp R     &kp T     XXXXXXX    XXXXXXX   XXXXXXX   XXXXXXX   XXXXXXX
+    &kp A     &kp S     &kp D     &kp F     &kp G     XXXXXXX    XXXXXXX   XXXXXXX   XXXXXXX   XXXXXXX
+    &kp Z     &kp X     &kp C     &kp V     &kp B     XXXXXXX    &kp RGUI  &kp RALT  &kp RCTRL &kp RSHFT
+                                  _______   &kp SPACE &kp SPACE  _______
+            >;
+        };
+        adjust_layer {
+            bindings = <
+    &bootloader  &sys_reset   USMODE       JPMODE       XXXXXXX      &bootloader &sys_reset &kp KP_NUM &kp CAPS &kp SLCK
+    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 XXXXXXX     XXXXXXX    XXXXXXX    XXXXXXX  XXXXXXX
+    &out OUT_USB &out OUT_BLE &bt BT_CLR   XXXXXXX      _______      XXXXXXX     XXXXXXX    XXXXXXX    XXXXXXX  _______
+                                           _______      _______      _______     _______
+            >;
+        };
+    };
+};
