@@ -1,11 +1,5 @@
 if SHIELD_THORIUM
 
-config ZMK_BLE
-    default y
-
-config ZMK_USB
-    default y
-
 config ZMK_KEYBOARD_NAME
     default "Thorium"
 
@@ -19,12 +13,6 @@ endif
 
 if SHIELD_THORIUM_LEFT
 
-config ZMK_BLE
-    default y
-
-config ZMK_USB
-    default y
-
 config ZMK_KEYBOARD_NAME
     default "ThoriumL"
 
@@ -34,12 +22,6 @@ config ZMK_SPLIT
 endif
 
 if SHIELD_THORIUM_RIGHT
-
-config ZMK_BLE
-    default y
-
-config ZMK_USB
-    default y
 
 config ZMK_KEYBOARD_NAME
     default "ThoriumR"
