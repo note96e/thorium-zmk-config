@@ -77,7 +77,6 @@
 #define ZMK_MORPH_STRINGIFY(x) #x
 #define ZMK_MORPH_SFT(name,...) \
     name: name { \
-        label = ZMK_MORPH_STRINGIFY(ZMM_ ## name); \
         compatible = "zmk,behavior-mod-morph"; \
         #binding-cells = <0>; \
         mods = <(MOD_LSFT|MOD_RSFT)>; \
@@ -85,7 +84,6 @@
     };
 #define ZMK_MORPH_SKS(name,...) \
     name: name { \
-        label = ZMK_MORPH_STRINGIFY(ZMM_ ## name); \
         compatible = "zmk,behavior-mod-morph"; \
         #binding-cells = <0>; \
         mods = <(MOD_LSFT|MOD_RSFT)>; \

@@ -1,5 +1,9 @@
 #include "thorium.dtsi"
 
+zephyr_udc0: &usbd {
+    status = "okay";
+};
+
 &physical_layout0 {
     transform = <&default_transform>;
 };
