@@ -16,6 +16,6 @@ manifest:
       import: app/west.yml
     - name: zmk-component-raytac-dongle
       remote: rschenk
-      revision: main
+      revision: v0.3
   self:
     path: config

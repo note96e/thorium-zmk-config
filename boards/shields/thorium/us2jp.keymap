@@ -97,7 +97,7 @@
         };
         jplower_layer {
             bindings = <
-    JPEXCL    JPAT      JPHASH    JPDLLR    JPPRCNT   JPCARET   JPAMPS    JPASTRK   &kp HOME  &kp END
+    JPEXCL    JPAT      JPHASH    JPDLLR    JPPRCNT   JPCARET   JPAMPS    JPASTRK   &kp INS   &kp PAUSE_BREAK
     &lscaps   &kp TAB   &kp BSPC  &kp ESC   &kp DEL   XXXXXXX   JPUNDER   JPPLUS    JPPIPE    JPDQT
     &kp LSHFT &kp LCTRL &kp LALT  &kp LGUI  &kp PSCRN JPTILDE   &kp RGUI  &kp RALT  &kp RCTRL &kp RSHFT
                                   _______   ADJENT    &kp ENTER JPRMOD
@@ -113,7 +113,7 @@
         };
         jpfunc_layer {
             bindings = <
-    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F11   &kp F12   &kp UP     &kp INS   &kp PAUSE_BREAK
+    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F11   &kp F12   &kp UP     &kp HOME  &kp END
     &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp PG_UP &kp LEFT  &kp RIGHT  &kp RCTRL JPNUML
     &kp LSHFT &kp LCTRL &kp LALT  &kp LGUI  ADJUST    &kp PG_DN &kp DOWN  &kp RCTRL  &kp RSHFT _______
                                   XXXXXXX   &kp SPACE &kp RGUI  &kp RALT
@@ -155,7 +155,7 @@
         };
         lower_layer {
             bindings = <
-    &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT &kp CARET &kp AMPS  &kp ASTRK &kp HOME  &kp END
+    &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT &kp CARET &kp AMPS  &kp ASTRK &kp INS   &kp PAUSE_BREAK
     &kp CAPS  &kp TAB   &kp BSPC  &kp ESC   &kp DEL   XXXXXXX   &kp UNDER &kp PLUS  &kp PIPE  &kp DQT
     &kp LSHFT &kp LCTRL &kp LALT  &kp LGUI  &kp PSCRN &kp TILDE &kp RGUI  &kp RALT  &kp RCTRL &kp RSHFT
                                   _______   ADJENT    &kp ENTER RMOD
@@ -171,7 +171,7 @@
         };
         func_layer {
             bindings = <
-    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F11   &kp F12   &kp UP     &kp INS   &kp PAUSE_BREAK
+    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F11   &kp F12   &kp UP     &kp HOME  &kp END
     &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp PG_UP &kp LEFT  &kp RIGHT  &kp RCTRL NUML
     &kp LSHFT &kp LCTRL &kp LALT  &kp LGUI  ADJUST    &kp PG_DN &kp DOWN  &kp RCTRL  &kp RSHFT _______
                                   XXXXXXX   &kp SPACE  &kp RGUI &kp RALT
